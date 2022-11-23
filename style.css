@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    
+    width: 80%;
+    height: 650px;
+
+    border: solid;
+}
+img{
+    width: 450px;
+    height: 450px;
+}
