@@ -3,7 +3,7 @@ const btnSortear = document.querySelector('.btn-sortear')
 const divLinha = document.querySelector('.container-linha')
 const table = document.querySelector('table')
 const forca = document.querySelector('.img')
-
+const listaAlfabeto = document.querySelector('.lista-letras')
 let backgrounds = [
     'url("img/1.png")',
     'url("img/2.png")',
@@ -19,9 +19,14 @@ let palavras = [
     'Uva',
     'Melão'
 ]
+let alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","U","V","W","X","Y","Z"]
 
-
-
+alfabeto.forEach(e=>{
+    let divAlfabeto = document.createElement('div')
+    console.log(e)
+    divAlfabeto.innerHTML = `<button>${e}</button>`
+    listaAlfabeto.appendChild(divAlfabeto)
+})
 let i=1
 
 btn.addEventListener('click', e=>{
@@ -30,11 +35,18 @@ btn.addEventListener('click', e=>{
     forca.style.backgroundSize = 'cover'
     i++
 })
-let div = document.createElement('div')
+
 btnSortear.addEventListener('click', e =>{
-    for (let i = 0; i < 10; i++) {
-    div.innerHTML = `<div class="linha" ${i}>a</div>`
+    let arr = []
+    let qtdePalavra =[]
+    let div = document.createElement('div')
+    const palavra = Math.floor(Math.random() * palavras.length)
+    
+    for(let i= 0; i< palavras[palavra].length;i++){
+        arr =palavras[palavra].split("")
+        console.log(arr)
+        qtdePalavra.push(`<div class="linha" id='${i}'></div>`)
+        div.innerHTML = qtdePalavra.join('')
     }
- 
-    this.divLinha.appendChild(div)
+    divLinha.appendChild(div)
 })
