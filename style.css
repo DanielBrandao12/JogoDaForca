@@ -47,8 +47,12 @@ body {
 
     font-size: 45px;
 
-}
 
+}
+.linha span{
+
+    visibility: hidden;
+}
 .container-linha {
     display: flex;
     flex-direction: row;

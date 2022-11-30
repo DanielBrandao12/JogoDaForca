@@ -4,7 +4,7 @@ const divLinha = document.querySelector('.container-linha')
 const table = document.querySelector('table')
 const forca = document.querySelector('.img')
 const listaAlfabeto = document.querySelector('.lista-letras')
-const quadroLetra = document.querySelectorAll('.linha')
+
 
 let backgrounds = [
     'url("img/1.png")',
@@ -29,8 +29,12 @@ alfabeto.forEach(e=>{
     divAlfabeto.innerHTML = `<button id="btnLetra">${e}</button>`
     listaAlfabeto.appendChild(divAlfabeto)
 })
-let i=1
 const btnLetra = document.querySelectorAll('#btnLetra')
+
+
+let index=1
+
+
 btn.addEventListener('click', e=>{
 
     forca.style.background = backgrounds[i]
@@ -46,28 +50,35 @@ btnSortear.addEventListener('click', e =>{
     
     for(let i= 0; i< palavras[palavra].length;i++){
         arr =palavras[palavra].split("")
-        console.log(arr)
-        qtdePalavra.push(`<div class="linha" ></div>`)
+        //console.log(arr)
+        qtdePalavra.push(`<div class="linha" ><span>${arr[i]}</span></div>`)
         div.innerHTML = qtdePalavra.join('')
-        console.log(arr)
+       // console.log(arr)
     }
     divLinha.appendChild(div)
+    const quadroLetra = document.querySelectorAll('.linha span')
+    
+    //Encontrar algum jeito de fazer o teste sem usar o for
+    for(let i =0; i< quadroLetra.length;i++){
+        
+        btnLetra.forEach(e =>{
+            e.addEventListener('click', () =>{
+                if(e.innerText == arr[i]){
+                    quadroLetra[i].style.visibility = 'visible'
+                    console.log( e.innerText + 'oi')
+                }else{
+                    forca.style.background = backgrounds[index]
+                    forca.style.backgroundSize = 'cover'
+                    
+                }
+                
+                index++
+            })
+        })
+        console.log(quadroLetra[i])
+        
+    }
     return arr
 })
 
-btnLetra.forEach(e =>{
-    e.addEventListener('click', () =>{
-        if(arr.includes(e.innerText)){
-            
-            console.log( e.innerText)
-        }
-       // console.log(arr.indexOf(e.innerText))
-    })
-})
 
-quadroLetra.forEach(insereLetra =>{
-    insereLetra.addEventListener('click' ,()=>{
-
-        console.log(insereLetra.innerHTML)
-    })
-})
