@@ -4,6 +4,8 @@ const divLinha = document.querySelector('.container-linha')
 const table = document.querySelector('table')
 const forca = document.querySelector('.img')
 const listaAlfabeto = document.querySelector('.lista-letras')
+const quadroLetra = document.querySelectorAll('.linha')
+
 let backgrounds = [
     'url("img/1.png")',
     'url("img/2.png")',
@@ -14,30 +16,30 @@ let backgrounds = [
     'url("img/7.png")'
 ]
 let palavras = [
-    'Maçã',
-    'Pera',
-    'Uva',
-    'Melão'
+    'MAÇA',
+    'PERA',
+    'UVA',
+    'MELÃO'
 ]
 let alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","U","V","W","X","Y","Z"]
 
 alfabeto.forEach(e=>{
     let divAlfabeto = document.createElement('div')
-    console.log(e)
-    divAlfabeto.innerHTML = `<button>${e}</button>`
+ 
+    divAlfabeto.innerHTML = `<button id="btnLetra">${e}</button>`
     listaAlfabeto.appendChild(divAlfabeto)
 })
 let i=1
-
+const btnLetra = document.querySelectorAll('#btnLetra')
 btn.addEventListener('click', e=>{
-    console.log(i)
+
     forca.style.background = backgrounds[i]
     forca.style.backgroundSize = 'cover'
     i++
 })
 
+let arr = []
 btnSortear.addEventListener('click', e =>{
-    let arr = []
     let qtdePalavra =[]
     let div = document.createElement('div')
     const palavra = Math.floor(Math.random() * palavras.length)
@@ -45,8 +47,27 @@ btnSortear.addEventListener('click', e =>{
     for(let i= 0; i< palavras[palavra].length;i++){
         arr =palavras[palavra].split("")
         console.log(arr)
-        qtdePalavra.push(`<div class="linha" id='${i}'></div>`)
+        qtdePalavra.push(`<div class="linha" ></div>`)
         div.innerHTML = qtdePalavra.join('')
+        console.log(arr)
     }
     divLinha.appendChild(div)
+    return arr
+})
+
+btnLetra.forEach(e =>{
+    e.addEventListener('click', () =>{
+        if(arr.includes(e.innerText)){
+            
+            console.log( e.innerText)
+        }
+       // console.log(arr.indexOf(e.innerText))
+    })
+})
+
+quadroLetra.forEach(insereLetra =>{
+    insereLetra.addEventListener('click' ,()=>{
+
+        console.log(insereLetra.innerHTML)
+    })
 })
