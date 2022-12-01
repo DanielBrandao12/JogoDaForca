@@ -50,20 +50,20 @@ let arr = []
 btnSortear.addEventListener('click', e =>{
 
     let qtdePalavra =[]
+
     let div = document.createElement('div')
 
     const palavra = Math.floor(Math.random() * palavras.length)
     
     for(let i= 0; i< palavras[palavra].length;i++){
+
         arr =palavras[palavra].split("")
-        //console.log(arr)
         qtdePalavra.push(`<div class="linha" ><span>${arr[i]}</span></div>`)
         div.innerHTML = qtdePalavra.join('')
-        // console.log(arr)
+      
     }
 
     divLinha.appendChild(div)
-  
   
     const quadroLetra = document.querySelectorAll('.linha span')
 
@@ -71,21 +71,29 @@ btnSortear.addEventListener('click', e =>{
     let j =1
    
   
-
        btnLetra.forEach(e =>{
            e.addEventListener('click', () =>{
+
             console.log(e.innerText)
             console.log(arr[arr.indexOf(e.innerText)])
-               if(e.innerText ===replaceSpecialChars( arr[arr.indexOf(e.innerText)])){
-                quadroLetra[i].style.visibility = 'visible'
-                   console.log( e.innerText + ' '+i)
-                   i++
-                   e.disabled = true
+
+               if(e.innerText === arr[arr.indexOf(e.innerText)]){
+                    
+
+                            quadroLetra[i].style.visibility = 'visible'
+                        
+                    
+                    console.log( e.innerText + ' '+i)
+                    i++
+                    e.disabled = true
+
                }else{
-                console.log(i)
-                   forca.style.background = backgrounds[j]
-                   forca.style.backgroundSize = 'cover'
-                 j++
+
+                    console.log(i)
+                    forca.style.background = backgrounds[j]
+                    forca.style.backgroundSize = 'cover'
+                    j++
+
                }
             console.log(arr[3])
                
