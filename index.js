@@ -18,10 +18,7 @@ let backgrounds = [
 
 //Lista de palavras provisorio
 let palavras = [
-    'MAÇA',
-    'PERA',
-    'UVA',
-    'MELÃO'
+    'MAÇA'
 ]
 let alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","U","V","W","X","Y","Z"]
 
@@ -58,7 +55,7 @@ btnSortear.addEventListener('click', e =>{
     for(let i= 0; i< palavras[palavra].length;i++){
 
         arr =palavras[palavra].split("")
-        qtdePalavra.push(`<div class="linha" ><span>${arr[i]}</span></div>`)
+        qtdePalavra.push(`<div class="linha" ><span></span></div>`)
         div.innerHTML = qtdePalavra.join('')
       
     }
@@ -67,35 +64,49 @@ btnSortear.addEventListener('click', e =>{
   
     const quadroLetra = document.querySelectorAll('.linha span')
 
-    let i =0
+   
     let j =1
    
   
        btnLetra.forEach(e =>{
            e.addEventListener('click', () =>{
 
-            console.log(e.innerText)
-            console.log(arr[arr.indexOf(e.innerText)])
+            
+               
+               for(let i = 0; i<arr.length;i++){
+                if(e.innerText == replaceSpecialChars(arr[i])){
 
-               if(e.innerText === arr[arr.indexOf(e.innerText)]){
                     
+                    quadroLetra[i].innerText = arr[i]
+                      
+                  console.log(quadroLetra[i])
+                    e.disabled = true
+                   
+               } 
 
-                            quadroLetra[i].style.visibility = 'visible'
+              }
+
+              console.log()
+              
+              
+              if(e.innerText != arr[arr.indexOf(e.innerText)] && replaceSpecialChars(arr[arr.indexOf(e.innerText)])){
+             
+                    btnLetra[alfabeto.indexOf(e.innerText)].style.background ='red'
+                
+               
+           }
+            
+              
+       
+           
+                   
+                  
+                    
+               
                         
                     
-                    console.log( e.innerText + ' '+i)
-                    i++
-                    e.disabled = true
-
-               }else{
-
-                    console.log(i)
-                    forca.style.background = backgrounds[j]
-                    forca.style.backgroundSize = 'cover'
-                    j++
-
-               }
-            console.log(arr[3])
+              
+       
                
             })
        })

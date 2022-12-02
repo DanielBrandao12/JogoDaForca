@@ -49,10 +49,7 @@ body {
 
 
 }
-.linha span{
 
-    visibility: hidden;
-}
 .container-linha {
     display: flex;
     flex-direction: row;
