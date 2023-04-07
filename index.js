@@ -18,7 +18,8 @@ let backgrounds = [
 
 //Lista de palavras provisorio
 let palavras = [
-    'MAÇA'
+    'MAÇÃ',
+    'PERA'
 ]
 let alfabeto = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","U","V","W","X","Y","Z"]
 
@@ -32,18 +33,10 @@ alfabeto.forEach(e=>{
 
 const btnLetra = document.querySelectorAll('#btnLetra')
 
-
-/*
-btn.addEventListener('click', e=>{
-    
-    forca.style.background = backgrounds[i]
-    forca.style.backgroundSize = 'cover'
-    i++
-})
-*/
-
+//array que vai receber a palavra sorteada do jogo
 let arr = []
 
+//botão que vai escolher a palavra e iniciar o jogo
 btnSortear.addEventListener('click', e =>{
 
     let qtdePalavra =[]
@@ -66,48 +59,53 @@ btnSortear.addEventListener('click', e =>{
 
    
     let j =1
-   
+    let palavraVerifique =[]
   
        btnLetra.forEach(e =>{
            e.addEventListener('click', () =>{
-
-            
+               
                
                for(let i = 0; i<arr.length;i++){
-                if(e.innerText == replaceSpecialChars(arr[i])){
+                    arr[i] = replaceSpecialChars(arr[i])
+                if(e.innerText == arr[i]){
 
-                    
+                    palavraVerifique.push(arr[i])
                     quadroLetra[i].innerText = arr[i]
                       
-                  console.log(quadroLetra[i])
+                //  console.log(quadroLetra[i])
                     e.disabled = true
                    
-               } 
-
-              }
-
-              console.log()
-              
-              
-              if(e.innerText != arr[arr.indexOf(e.innerText)] && replaceSpecialChars(arr[arr.indexOf(e.innerText)])){
-             
-                    btnLetra[alfabeto.indexOf(e.innerText)].style.background ='red'
-                
-               
-           }
-            
-              
-       
            
-                   
-                  
+                    if(quadroLetra.length == palavraVerifique.length){
+                        console.log('Parabéns')
+                        console.log(palavras[palavra])
+
+                    }
+                } 
+                
+            }
+
+
+          
+        
+              if(e.innerText != arr[arr.indexOf(e.innerText)] ){
+                    e.disabled = true
+                    btnLetra[alfabeto.indexOf(e.innerText)].style.background ='red'
+                    btnLetra[alfabeto.indexOf(e.innerText)].style.color ='black'
+                    forca.style.background = backgrounds[j]
+                    forca.style.backgroundSize = 'cover'
+                    j++
                     
-               
-                        
                     
-              
+                }
+                
+                
+           
+                
+                if(j==7){
+                    divLinha.innerHTML = '<span>Fim de jogo</span>'
        
-               
+                }
             })
        })
 })
@@ -127,3 +125,5 @@ function replaceSpecialChars(str)
 
     return str.replace(/[^a-z0-9]/gi,''); 
 }
+
+

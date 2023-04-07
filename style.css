@@ -30,8 +30,8 @@ body {
 
 .img {
 
-    width: 450px;
-    height: 450px;
+    width: 300px;
+    height: 300px;
     background-image: URL('IMG/1.png');
     background-size: cover;
 
@@ -56,11 +56,6 @@ body {
     justify-content: center;
     width: 100%;
     height: auto;
-
-
-
-
-
 }
 
 .container-linha div {
@@ -87,5 +82,5 @@ body {
 .container-forca {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
 }
