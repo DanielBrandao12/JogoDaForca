@@ -1,15 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .container {
     display: flex;
     flex-direction: row;
@@ -32,7 +20,7 @@ body {
 
     width: 300px;
     height: 300px;
-    background-image: URL('IMG/1.png');
+    background-image: URL('/img/1.png');
     background-size: cover;
 
 }
@@ -52,7 +40,7 @@ body {
 
 .container-linha {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     height: auto;

@@ -4,6 +4,7 @@ const divLinha = document.querySelector('.container-linha')
 const table = document.querySelector('table')
 const forca = document.querySelector('.img')
 const listaAlfabeto = document.querySelector('.lista-letras')
+const msg = document.querySelector('.msg')
 
 //Lista de imagens de sequencia da forca
 let backgrounds = [
@@ -79,7 +80,9 @@ btnSortear.addEventListener('click', e =>{
                     if(quadroLetra.length == palavraVerifique.length){
                         console.log('Parabéns')
                         console.log(palavras[palavra])
-
+                       
+                      
+                        msg.innerHTML = '<span>Parabéns</span>'
                     }
                 } 
                 
